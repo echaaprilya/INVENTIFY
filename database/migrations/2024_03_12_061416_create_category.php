@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('category', function (Blueprint $table) {
             $table->id('id_category');
+            $table->string('kode_category')->unique();
             $table->string('nama_category');
         });
     }
