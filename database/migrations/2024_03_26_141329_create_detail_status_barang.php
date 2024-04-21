@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('detail_status_barang', function (Blueprint $table) {
             $table->id('id_detail_status');
             $table->unsignedBigInteger('NUP')->index();
+            $table->unsignedBigInteger('id_user')->index();
             $table->string('status_awal');
             $table->string('status_akhir');
-            $table->string('keterangan');
+            $table->string('approval_status');
 
             $table->foreign('NUP')->references('NUP')->on('detail_barang');
+            $table->foreign('id_user')->references('id_user')->on('users');
         });
     }
 

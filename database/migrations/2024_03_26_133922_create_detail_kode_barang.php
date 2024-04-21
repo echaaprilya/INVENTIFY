@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('detail_kode_barang', function (Blueprint $table) {
-            $table->bigInteger('kode_barang')->primary();
+            $table->id('id_kode_barang');
+            $table->bigInteger('kode_barang')->unique();
             $table->string('nama_barang');
         });
     }

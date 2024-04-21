@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('detail_barang', function (Blueprint $table) {
             $table->id('NUP');
-            $table->unsignedBigInteger('kode_barang')->index();
+            $table->unsignedBigInteger('id_kode_barang')->index();
             $table->string('merk_barang');
             $table->string('satuan');
             $table->string('harga_perolehan');
             $table->dateTime('tanggal_pencatatan');
 
-            $table->foreign('kode_barang')->references('kode_barang')->on('detail_kode_barang');
+            $table->foreign('id_kode_barang')->references('id_kode_barang')->on('detail_kode_barang');
         });
     }
 
