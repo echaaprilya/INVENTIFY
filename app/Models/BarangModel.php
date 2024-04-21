@@ -11,12 +11,12 @@ class BarangModel extends Model
     use HasFactory;
 
     protected $table = 'detail_barang';
-    protected $primaryKey = 'NUP';
+    protected $primaryKey = 'id_barang';
     public $timestamps = false;
 
-    protected $fillable = ['id_kode_barang','merk_barang','satuan', 'harga_perolehan', 'tanggal_pencatatan'];
+    protected $fillable = ['id_kode_barang','merk_barang','satuan', 'harga_perolehan', 'tanggal_pencatatan', 'NUP'];
 
-    public function kodeBarang(): BelongsTo{
+    public function kode(): BelongsTo{
         return $this->belongsTo(KodeBarangModel::class, 'id_kode_barang', 'id_kode_barang');
     }
 }

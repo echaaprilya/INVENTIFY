@@ -25,7 +25,7 @@
                   <i class="nav-icon far fa-user"></i>
                   <p>
                     Data User
-                    <i class="right fas fa-angle-left"></i>
+                    <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -41,7 +41,33 @@
                         <p>List User</p>
                     </a>
                   </li>
+                </ul>
+            </li>
+            <li class="nav-header">Inventory</li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-laptop"></i>
+                  <p>
+                    Data Barang
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('/kode') }}" class="nav-link {{ $activeMenu == 'kode' ? 'active' : '' }}">
+                      <i class="nav-icon fas fa-list"></i>
+                      <p>Kode Barang</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url('/barang') }}" class="nav-link {{ $activeMenu == 'barang' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-server"></i>
+                        <p>List Barang</p>
+                    </a>
+                  </li>
+                </ul>
             </li>
         </ul>
     </nav>
 </div>
+

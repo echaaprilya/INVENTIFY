@@ -37,3 +37,25 @@ Route::group(['prefix' => 'user'], function(){
     Route::put('/{id}', [UserController::class, 'update']);
     Route::delete('/{id}', [UserController::class, 'destroy']);
 });
+
+Route::group(['prefix' => 'kode'], function(){
+    Route::get('/', [KodeBarangController::class, 'index']);
+    Route::post('/list', [KodeBarangController::class, 'list']);
+    Route::get('/create', [KodeBarangController::class, 'create']);
+    Route::post('/', [KodeBarangController::class,'store']);
+    Route::get('/{id}', [KodeBarangController::class, 'show']);
+    Route::get('/{id}/edit', [KodeBarangController::class, 'edit']);
+    Route::put('/{id}', [KodeBarangController::class, 'update']);
+    Route::delete('/{id}', [KodeBarangController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'barang'], function(){
+    Route::get('/', [BarangController::class, 'index']);
+    Route::post('/list', [BarangController::class, 'list']);
+    Route::get('/create', [BarangController::class, 'create']);
+    Route::post('/', [BarangController::class,'store']);
+    Route::get('/{id}', [BarangController::class, 'show']);
+    Route::get('/{id}/edit', [BarangController::class, 'edit']);
+    Route::put('/{id}', [BarangController::class, 'update']);
+    Route::delete('/{id}', [BarangController::class, 'destroy']);
+});
