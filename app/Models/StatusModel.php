@@ -17,7 +17,7 @@ class StatusModel extends Model
     protected $fillable = ['NUP', 'id_user', 'status_awal', 'status_akhir', 'approval_status'];
 
     public function user(): BelongsTo{
-        return $this->belongsTo(User::class, 'id_user', 'id_user');
+        return $this->belongsTo(UserModel::class, 'id_user', 'id_user');
     }
 
     public function barang(): BelongsTo{
