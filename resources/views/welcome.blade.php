@@ -3,7 +3,7 @@
 {{-- Customize Layout Section --}}
 
 @section('subtitle', 'Welcome')
-@section('content_header_title', 'Home')
+@section('content_header_title', 'Dashboard')
 @section('content_header_subtitle', 'Welcome')
 
 {{-- Content Body: Main Page Content --}}
