@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [WelcomeController::class, 'index']);
+
+Route::group(['prefix' => 'role'], function(){
+    Route::get('/', [RoleController::class, 'index']);
+    Route::post('/list', [RoleController::class, 'list']);
+    Route::get('/create', [RoleController::class, 'create']);
+    Route::post('/', [RoleController::class,'store']);
+    Route::get('/{id}', [RoleController::class, 'show']);
+    Route::get('/{id}/edit', [RoleController::class, 'edit']);
+    Route::put('/{id}', [RoleController::class, 'update']);
+    Route::delete('/{id}', [RoleController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'user'], function(){
+    Route::get('/', [UserController::class, 'index']);
+    Route::post('/list', [UserController::class, 'list']);
+    Route::get('/create', [UserController::class, 'create']);
+    Route::post('/', [UserController::class,'store']);
+    Route::get('/{id}', [UserController::class, 'show']);
+    Route::get('/{id}/edit', [UserController::class, 'edit']);
+    Route::put('/{id}', [UserController::class, 'update']);
+    Route::delete('/{id}', [UserController::class, 'destroy']);
 });
