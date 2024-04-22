@@ -20,7 +20,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Kode Barang</th>
-                        <th>Nama Barang</th>
+                        <th>Deskripsi Barang</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -59,7 +59,7 @@
                 searchable: true // searchable: true, jika ingin kolom ini bisa dicari
                 },
                 {
-                data: "nama_barang",
+                data: "deskripsi_barang",
                 className: "",
                 orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
                 searchable: true // searchable: true, jika ingin kolom ini bisa dicari

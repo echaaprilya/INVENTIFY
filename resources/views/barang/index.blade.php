@@ -23,7 +23,7 @@
                                 <select name="id_kode_barang" id="id_kode_barang" class="form-control" required>
                                     <option value="">- Semua -</option>
                                     @foreach ($kode as $item)
-                                        <option value="{{ $item->id_kode_barang }}">{{ $item->nama_barang }}</option>
+                                        <option value="{{ $item->id_kode_barang }}">{{ $item->deskripsi_barang }}</option>
                                     @endforeach
                                     </select>
                                     <small class="form-text text-muted">Role Pengguna</small>
@@ -37,7 +37,6 @@
                         <th>ID</th>
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
-                        <th>Merk</th>
                         <th>NUP</th>
                         <th>Satuan</th>
                         <th>Harga Perolehan</th>
@@ -79,13 +78,7 @@
                 searchable: true // searchable: true, jika ingin kolom ini bisa dicari
                 },
                 {
-                data: "kode.nama_barang",
-                className: "",
-                orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
-                searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                },
-                {
-                data: "merk_barang",
+                data: "nama_barang",
                 className: "",
                 orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
                 searchable: true // searchable: true, jika ingin kolom ini bisa dicari

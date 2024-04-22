@@ -21,7 +21,7 @@
                     <select class="form-control" id="id_kode_barang" name="id_kode_barang" required>
                         <option value="">- Pilih Kode -</option>
                     @foreach($kode as $item)
-                        <option value="{{ $item->id_kode_barang }}" @if($item->id_kode_barang == $barang->id_kode_barang) selected @endif>{{ $item->nama_barang}}</option>
+                        <option value="{{ $item->id_kode_barang }}" @if($item->id_kode_barang == $barang->id_kode_barang) selected @endif>{{ $item->deskripsi_barang}}</option>
                     @endforeach
                     </select>
                     @error('id_kode_barang')
@@ -30,10 +30,10 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-1 control-label col-form-label">Merk Barang</label>
+                <label class="col-1 control-label col-form-label">Nama Barang</label>
                 <div class="col-11">
-                    <input type="text" class="form-control" id="merk_barang" name="merk_barang" value="{{ old('nama', $barang->merk_barang) }}" required>
-                @error('merk_barang')
+                    <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="{{ old('nama', $barang->nama_barang) }}" required>
+                @error('nama_barang')
                     <small class="form-text text-danger">{{ $message }}</small>
                 @enderror
                 </div>

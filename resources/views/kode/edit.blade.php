@@ -27,8 +27,8 @@
             <div class="form-group row">
                 <label class="col-1 control-label col-form-label">Nama Barang</label>
                 <div class="col-11">
-                    <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="{{ old('nama_barang', $kode->nama_barang) }}" required>
-                @error('nama_barang')
+                    <input type="text" class="form-control" id="deskripsi_barang" name="deskripsi_barang" value="{{ old('deskripsi_barang', $kode->deskripsi_barang) }}" required>
+                @error('deskripsi_barang')
                     <small class="form-text text-danger">{{ $message }}</small>
                 @enderror
                 </div>

@@ -18,7 +18,7 @@
                         <select class="form-control" name="id_kode_barang[]" required>
                             <option value="">- Pilih Kode -</option>
                             @foreach($kode as $item)
-                                <option value="{{ $item->id_kode_barang }}">{{ $item->nama_barang}}</option>
+                                <option value="{{ $item->id_kode_barang }}">{{ $item->deskripsi_barang}}</option>
                             @endforeach
                         </select>
                         @error('id_kode_barang')
@@ -27,10 +27,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-1 control-label col-form-label">Merk Barang</label>
+                    <label class="col-1 control-label col-form-label">Nama Barang</label>
                     <div class="col-11">
-                        <input type="text" class="form-control" name="merk_barang[]" value="{{ old('merk_barang') }}" required>
-                        @error('merk_barang')
+                        <input type="text" class="form-control" name="nama_barang[]" value="{{ old('nama_barang') }}" required>
+                        @error('nama_barang')
                             <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>

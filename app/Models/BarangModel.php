@@ -14,9 +14,10 @@ class BarangModel extends Model
     protected $primaryKey = 'id_barang';
     public $timestamps = false;
 
-    protected $fillable = ['id_kode_barang','merk_barang','satuan', 'harga_perolehan', 'tanggal_pencatatan', 'NUP'];
+    protected $fillable = ['id_kode_barang','nama_barang','satuan', 'harga_perolehan', 'tanggal_pencatatan', 'NUP'];
 
     public function kode(): BelongsTo{
         return $this->belongsTo(KodeBarangModel::class, 'id_kode_barang', 'id_kode_barang');
     }
+
 }

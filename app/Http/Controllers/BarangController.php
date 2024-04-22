@@ -30,7 +30,7 @@ class BarangController extends Controller
 
     public function list(Request $request)
     {
-        $products = BarangModel::select('id_barang', 'NUP', 'merk_barang', 'satuan', 'harga_perolehan', 'tanggal_pencatatan', 'id_kode_barang')
+        $products = BarangModel::select('id_barang', 'NUP', 'nama_barang', 'satuan', 'harga_perolehan', 'tanggal_pencatatan', 'id_kode_barang')
                     ->with('kode');
 
         if ($request->id_kode_barang) {
@@ -69,7 +69,7 @@ class BarangController extends Controller
         // Validate each field as an array
         $request->validate([
             'id_kode_barang.*'     => 'required|integer',
-            'merk_barang.*'        => 'required|string',
+            'nama_barang.*'        => 'required|string',
             'NUP.*'                => 'required|string',
             'satuan.*'             => 'required|string',
             'harga_perolehan.*'    => 'required|string',
@@ -80,7 +80,7 @@ class BarangController extends Controller
         foreach ($request->id_kode_barang as $key => $value) {
             BarangModel::create([
                 'id_kode_barang'        => $request->id_kode_barang[$key],
-                'merk_barang'           => $request->merk_barang[$key],
+                'nama_barang'           => $request->nama_barang[$key],
                 'NUP'                   => $request->NUP[$key],
                 'satuan'                => $request->satuan[$key],
                 'harga_perolehan'       => $request->harga_perolehan[$key],
@@ -128,7 +128,7 @@ class BarangController extends Controller
 
     public function update(Request $request, $id){
         $request->validate([
-            'merk_barang'           =>'required | string ',
+            'nama_barang'           =>'required | string ',
             'NUP'                   => 'required | string | :detail_barang,'.$id.',id_barang',
             'satuan'                => 'required | string',
             'harga_perolehan'       =>'required | string',
@@ -138,7 +138,7 @@ class BarangController extends Controller
 
         BarangModel::find($id)->update([
             'id_kode_barang'        => $request->id_kode_barang,
-            'merk_barang'           => $request->merk_barang,
+            'nama_barang'           => $request->nama_barang,
             'NUP'                   => $request->NUP,
             'satuan'                => $request->satuan,
             'harga_perolehan'       => $request->harga_perolehan,

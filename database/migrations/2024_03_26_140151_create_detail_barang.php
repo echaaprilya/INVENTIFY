@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('detail_barang', function (Blueprint $table) {
             $table->id('id_barang');
             $table->unsignedBigInteger('id_kode_barang')->index();
-            $table->string('merk_barang');
+            $table->string('nama_barang');
             $table->string('NUP');
             $table->string('satuan');
             $table->string('harga_perolehan');

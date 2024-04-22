@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <th>Nama Barang</th>
-            <td>{{ $barang->kode->nama_barang }}</td>
+            <td>{{ $barang->nama_barang }}</td>
         </tr>
         <tr>
             <th>NUP</th>

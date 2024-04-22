@@ -22,8 +22,8 @@
             <td>{{ $kode->kode_barang }}</td>
         </tr>
         <tr>
-            <th>Nama Barang</th>
-            <td>{{ $kode->nama_barang }}</td>
+            <th>Deskripsi Barang</th>
+            <td>{{ $kode->deskripsi_barang }}</td>
         </tr>
         </table>
     @endempty

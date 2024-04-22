@@ -27,10 +27,10 @@ class KodeBarangController extends Controller
 
     public function list(Request $request)
     {
-        $kodes = KodeBarangModel::select('id_kode_barang', 'kode_barang', 'nama_barang');
+        $kodes = KodeBarangModel::select('id_kode_barang', 'kode_barang', 'deskripsi_barang');
 
         return DataTables::of($kodes)
-            ->addIndexColumn() // menambahkan kolom index / no urut (default nama_barang kolom: DT_RowIndex)
+            ->addIndexColumn() // menambahkan kolom index / no urut (default deskripsi_barang kolom: DT_RowIndex)
             ->addColumn('aksi', function ($kode) { // menambahkan kolom aksi
                 $btn = '<a href="' . url('/kode/' . $kode->id_kode_barang) . '" class="btn btn-info btn-sm">Detail</a> ';
                 $btn .= '<a href="' . url('/kode/' . $kode->id_kode_barang . '/edit') . '" class="btn btn-warning btn-sm">Edit</a> ';
@@ -59,12 +59,12 @@ class KodeBarangController extends Controller
     public function store(Request $request){
         $request->validate([
             'kode_barang' =>'required | numeric | unique:detail_kode_barang,kode_barang',
-            'nama_barang' =>'required | string | max:100',
+            'deskripsi_barang' =>'required | string ',
         ]);
 
         KodeBarangModel::create([
             'kode_barang' => $request->kode_barang,
-            'nama_barang' => $request->nama_barang,
+            'deskripsi_barang' => $request->deskripsi_barang,
         ]);
 
         return redirect('/kode')->with('success', 'Data berhasil ditambahkan');
@@ -107,12 +107,12 @@ class KodeBarangController extends Controller
     public function update(Request $request, $id){
         $request->validate([
             'kode_barang' => 'required|numeric|unique:detail_kode_barang,kode_barang,' . $id . ',kode_barang',
-            'nama_barang' => 'required|string|max:100',
+            'deskripsi_barang' => 'required|string',
         ]);
 
         KodeBarangModel::find($id)->update([
             'kode_barang' => $request->kode_barang,
-            'nama_barang' => $request->nama_barang,
+            'deskripsi_barang' => $request->deskripsi_barang,
         ]);
 
         return redirect('/kode')->with('success', 'Data berhasil diubah!');;
