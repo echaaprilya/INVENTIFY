@@ -59,3 +59,14 @@ Route::group(['prefix' => 'barang'], function(){
     Route::put('/{id}', [BarangController::class, 'update']);
     Route::delete('/{id}', [BarangController::class, 'destroy']);
 });
+
+Route::group(['prefix' => 'status'], function(){
+    Route::get('/', [StatusController::class, 'index']);
+    Route::post('/list', [StatusController::class, 'list']);
+    Route::get('/create', [StatusController::class, 'create']);
+    Route::post('/', [StatusController::class,'store']);
+    Route::get('/{id}', [StatusController::class, 'show']);
+    Route::get('/{id}/edit', [StatusController::class, 'edit']);
+    Route::put('/{id}', [StatusController::class, 'update']);
+    Route::delete('/{id}', [StatusController::class, 'destroy']);
+});

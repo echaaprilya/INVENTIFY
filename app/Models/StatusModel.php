@@ -14,13 +14,15 @@ class StatusModel extends Model
     protected $primaryKey = 'id_detail_status';
     public $timestamps = false;
 
-    protected $fillable = ['NUP', 'id_user', 'status_awal', 'status_akhir', 'approval_status'];
+    protected $fillable = ['id_barang', 'id_user', 'status_awal', 'status_akhir', 'approval_status'];
 
-    public function user(): BelongsTo{
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(UserModel::class, 'id_user', 'id_user');
     }
 
-    public function barang(): BelongsTo{
-        return $this->belongsTo(BarangModel::class, 'NUP', 'NUP');
+    public function barang(): BelongsTo
+    {
+        return $this->belongsTo(BarangModel::class, 'id_barang', 'id_barang');
     }
 }

@@ -65,6 +65,12 @@
                         <p>List Barang</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="{{ url('/status') }}" class="nav-link {{ $activeMenu == 'status' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-exclamation"></i>
+                        <p>Status Barang</p>
+                    </a>
+                  </li>
                 </ul>
             </li>
         </ul>

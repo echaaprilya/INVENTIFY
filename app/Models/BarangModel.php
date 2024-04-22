@@ -19,5 +19,4 @@ class BarangModel extends Model
     public function kode(): BelongsTo{
         return $this->belongsTo(KodeBarangModel::class, 'id_kode_barang', 'id_kode_barang');
     }
-
 }
