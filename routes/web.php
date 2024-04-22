@@ -70,3 +70,14 @@ Route::group(['prefix' => 'status'], function(){
     Route::put('/{id}', [StatusController::class, 'update']);
     Route::delete('/{id}', [StatusController::class, 'destroy']);
 });
+
+Route::group(['prefix' => 'ruang'], function(){
+    Route::get('/', [RuangController::class, 'index']);
+    Route::post('/list', [RuangController::class, 'list']);
+    Route::get('/create', [RuangController::class, 'create']);
+    Route::post('/', [RuangController::class,'store']);
+    Route::get('/{id}', [RuangController::class, 'show']);
+    Route::get('/{id}/edit', [RuangController::class, 'edit']);
+    Route::put('/{id}', [RuangController::class, 'update']);
+    Route::delete('/{id}', [RuangController::class, 'destroy']);
+});
