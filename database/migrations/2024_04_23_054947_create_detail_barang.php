@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('detail_barang', function (Blueprint $table) {
             $table->id('id_barang');
             $table->unsignedBigInteger('id_kode_barang')->index();
+            $table->unsignedBigInteger('id_user')->index();
             $table->string('nama_barang');
             $table->string('NUP');
             $table->string('satuan');
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->dateTime('tanggal_pencatatan');
 
             $table->foreign('id_kode_barang')->references('id_kode_barang')->on('detail_kode_barang');
+            $table->foreign('id_user')->references('id_user')->on('users');
         });
     }
 

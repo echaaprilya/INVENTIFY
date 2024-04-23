@@ -9,60 +9,19 @@
         <form method="POST" action="{{ url('status') }}" class="form-horizontal">
         @csrf
         <div class="form-group row">
-            <label class="col-1 control-label col-form-label">NUP & Nama Barang</label>
+            <label class="col-1 control-label col-form-label">Kode Status</label>
             <div class="col-11">
-                <select class="form-control" id="id_barang" name="id_barang" required>
-                    <option value="">- Pilih NUP & Nama Barang -</option>
-                @foreach($barang as $item)
-                    <option value="{{$item->id_barang }}">{{$item->NUP}} - {{$item->nama_barang}}</option>
-                @endforeach
-                </select>
-                @error('id_barang')
-                    <small class="form-text text-danger">{{ $message }}</small>
-                @enderror
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-1 control-label col-form-label">Penulisan Oleh</label>
-            <div class="col-11">
-                <select class="form-control" id="id_user" name="id_user" required>
-                    <option value="">- Pilih User -</option>
-                @foreach($user as $item)
-                    <option value="{{ $item->id_user }}">{{ $item->nama}}</option>
-                @endforeach
-                </select>
-                @error('id_user')
-                    <small class="form-text text-danger">{{ $message }}</small>
-                @enderror
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-1 control-label col-form-label">Status Awal</label>
-            <div class="col-11">
-                <select class="form-control" id="status_awal" name="status_awal" required>
-                    <option value="Baik">Baik</option>
-                    <option value="Rusak Ringan">Rusak Ringan</option>
-                    <option value="Rusak Berat">Rusak Berat</option>
-                </select>
-            @error('status_awal')
+                <input type="text" class="form-control" id="kode_status" name="kode_status" value="{{ old('kode_status') }}" >
+            @error('kode_status')
                 <small class="form-text text-danger">{{ $message }}</small>
             @enderror
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-1 control-label col-form-label">Status Akhir</label>
+            <label class="col-1 control-label col-form-label">Nama Status</label>
             <div class="col-11">
-                <input type="text" class="form-control" id="status_akhir" name="status_akhir" value="Baik" placeholder="Baik" readonly>
-            @error('status_akhir')
-                <small class="form-text text-danger">{{ $message }}</small>
-            @enderror
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-1 control-label col-form-label">Approval Status</label>
-            <div class="col-11">
-                <input type="text" class="form-control" id="approval_status" name="approval_status" value="Not Yet Approved" placeholder="Not Yet Approved" readonly>
-            @error('approval_status')
+                <input type="text" class="form-control" id="nama_status" name="nama_status" value="{{ old('nama_status') }}">
+            @error('nama_status')
                 <small class="form-text text-danger">{{ $message }}</small>
             @enderror
             </div>

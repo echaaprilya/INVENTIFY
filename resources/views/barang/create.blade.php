@@ -27,6 +27,20 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-1 control-label col-form-label">Admin Pencatatan</label>
+                    <div class="col-11">
+                        <select class="form-control" name="id_user[]" required>
+                            <option value="">- Pilih User -</option>
+                            @foreach($user as $item)
+                                <option value="{{ $item->id_user }}">{{ $item->nama}}</option>
+                            @endforeach
+                        </select>
+                        @error('id_user')
+                            <small class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Nama Barang</label>
                     <div class="col-11">
                         <input type="text" class="form-control" name="nama_barang[]" value="{{ old('nama_barang') }}" required>

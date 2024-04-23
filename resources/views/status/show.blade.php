@@ -18,28 +18,12 @@
             <td>{{ $status->id_detail_status }}</td>
         </tr>
         <tr>
-            <th>Nama Barang</th>
-            <td>{{ $status->barang->nama_barang }}</td>
+            <th>Kode Status</th>
+            <td>{{ $status->kode_status }}</td>
         </tr>
         <tr>
-            <th>NUP Barang</th>
-            <td>{{ $status->barang->NUP }}</td>
-        </tr>
-        <tr>
-            <th>Pencatat</th>
-            <td>{{ $status->user->nama }}</td>
-        </tr>
-        <tr>
-            <th>Status Awal</th>
-            <td>{{ $status->status_awal }}</td>
-        </tr>
-        <tr>
-            <th>Status Akhir</th>
-            <td>{{ $status->status_akhir }}</td>
-        </tr>
-        <tr>
-            <th>Approval Status</th>
-            <td>{{ $status->approval_status }}</td>
+            <th>Nama Status</th>
+            <td>{{ $status->nama_status }}</td>
         </tr>
         </table>
     @endempty

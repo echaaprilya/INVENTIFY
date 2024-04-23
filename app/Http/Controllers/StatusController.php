@@ -23,25 +23,13 @@ class StatusController extends Controller
         ];
 
         $activeMenu = 'status';
-        $barang = BarangModel::all();
-        $user = UserModel::all();
 
-        return view('status.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'user' => $user, 'barang' => $barang, 'activeMenu' => $activeMenu]);
+        return view('status.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
     }
 
     public function list(Request $request)
     {
-        $statuss = StatusModel::select('id_detail_status', 'status_awal', 'status_akhir', 'approval_status', 'id_barang', 'id_user', )
-                    ->with('barang')
-                    ->with('user');
-
-        if ($request->id_barang) {
-            $statuss->where('id_barang', $request->id_barang);
-        }
-            
-        if ($request->id_user) {
-            $statuss->where('id_user', $request->id_user);
-        }
+        $statuss = StatusModel::select('id_detail_status', 'kode_status', 'nama_status');
 
         return DataTables::of($statuss)
             ->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
@@ -66,34 +54,26 @@ class StatusController extends Controller
         ];
 
         $activeMenu = 'status';
-        $barang = BarangModel::all();
-        $user = UserModel::all();
 
-        return view('status.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'barang' => $barang, 'user' => $user,'activeMenu' => $activeMenu]);
+        return view('status.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
     }
 
     public function store(Request $request){
         $request->validate([
-            'id_barang'         => 'required|integer',
-            'id_user'           => 'required|integer',
-            'status_awal'       => 'required|string',
-            'status_akhir'      => 'required|string',
-            'approval_status'   => 'required|string',
+            'kode_status'       =>'required|unique:detail_status_barang,kode_status',
+            'nama_status'       =>'required|string'
         ]);
 
         StatusModel::create([
-            'id_barang'         => $request->id_barang,
-            'id_user'           => $request->id_user,
-            'status_awal'       => $request->status_awal,
-            'status_akhir'      => $request->status_akhir,
-            'approval_status'   => $request->approval_status
+            'kode_status'       => $request->kode_status,
+            'nama_status'       => $request->nama_status
         ]);
 
         return redirect('/status')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function show(string $id){
-        $status = StatusModel::with('barang')->with('user')->find($id);
+        $status = StatusModel::find($id);
 
         $breadcrumb = (object)[
             'title' => 'Detail Status Barang',
@@ -111,8 +91,6 @@ class StatusController extends Controller
 
     public function edit(string $id){
         $status = StatusModel::find($id);
-        $barang = BarangModel::all();
-        $user = UserModel::all();
 
         $breadcrumb = (object)[
             'title' => 'Edit Status Barang',
@@ -125,24 +103,18 @@ class StatusController extends Controller
 
         $activeMenu = 'status';
 
-        return view('status.edit', ['breadcrumb' => $breadcrumb, 'page' => $page, 'status' => $status, 'barang' => $barang, 'user' => $user, 'activeMenu' => $activeMenu]);
+        return view('status.edit', ['breadcrumb' => $breadcrumb, 'page' => $page, 'status' => $status, 'activeMenu' => $activeMenu]);
     }
 
     public function update(Request $request, $id){
         $request->validate([
-            'id_barang'         => 'required|integer:detail_status,'.$id.',id_detail_status',
-            'id_user'           => 'required|integer',
-            'status_awal'       => 'required|string',
-            'status_akhir'      => 'required|string',
-            'approval_status'   => 'required|string',
+            'kode_status'       =>'required|unique:detail_status_barang,kode_status,'. $id . ',id_detail_status',
+            'nama_status'       =>'required|string'
         ]);
 
         StatusModel::find($id)->update([
-            'id_barang'         => $request->id_barang,
-            'id_user'           => $request->id_user,
-            'status_awal'       => $request->status_awal,
-            'status_akhir'      => $request->status_akhir,
-            'approval_status'   => $request->approval_status
+            'kode_status'       => $request->kode_status,
+            'nama_status'       => $request->nama_status
         ]);
 
         return redirect('/status')->with('success', 'Data berhasil diubah!');;

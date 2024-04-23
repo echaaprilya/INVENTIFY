@@ -15,40 +15,12 @@
                 @if (@session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group row">
-                            <label class="col-1 control-label col-form-label">Filter:</label>
-                            <div class="col-3">
-                                <select class="form-control" id="id_barang" name="id_barang" required>
-                                    <option value="">- Semua -</option>
-                                    @foreach($barang as $item)
-                                        <option value="{{ $item->id_barang }}">{{ $item->NUP }} - {{ $item->nama_barang }}</option>
-                                    @endforeach
-                                </select>
-                                <small class="form-text text-muted">Barang</small>
-                            </div>
-                            <div class="col-3">
-                                <select class="form-control" id="id_user" name="id_user" required>
-                                    <option value="">- Semua -</option>
-                                    @foreach($user as $item)
-                                        <option value="{{ $item->id_user }}">{{ $item->nama }}</option>
-                                    @endforeach
-                                </select>
-                                <small class="form-text text-muted">Penulis</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <table class="table table-bordered table-striped table-hover table-sm" id="table_status">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nama Barang</th>
-                        <th>Ditulis Oleh</th>
-                        <th>Status Awal</th>
-                        <th>Status Akhir</th>
-                        <th>Approval Status</th>
+                        <th>Kode Status</th>
+                        <th>Nama Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -70,8 +42,7 @@
             "dataType": "json",
             "type": "POST",
             "data": function ( d ) {
-                d.id_barang = $('#id_barang').val();
-                d.id_user = $('#id_user').val();
+                
             }
             },
             columns: [
@@ -82,34 +53,16 @@
                 searchable: false
                 },
                 {
-                data: "barang.nama_barang",
+                data: "kode_status",
                 className: "",
                 orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
                 searchable: true // searchable: true, jika ingin kolom ini bisa dicari
                 },
                 {
-                data: "user.nama",
+                data: "nama_status",
                 className: "",
                 orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
                 searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                },
-                {
-                data: "status_awal",
-                className: "",
-                orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                },
-                {
-                data: "status_akhir",
-                className: "",
-                orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
-                searchable: false // searchable: true, jika ingin kolom ini bisa dicari
-                },
-                {
-                data: "approval_status",
-                className: "",
-                orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
-                searchable: false // searchable: true, jika ingin kolom ini bisa dicari
                 },
                 {
                 data: "aksi",
@@ -119,13 +72,6 @@
                 }
             ]
         });
-
-        $('#id_barang').on('change', function() {
-            dataStatus.ajax.reload();
-        });
-        $('#id_user').on('change', function() {
-            dataStatus.ajax.reload();
-        })
     });
 </script>
 @endpush

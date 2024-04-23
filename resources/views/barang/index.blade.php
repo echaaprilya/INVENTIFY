@@ -26,7 +26,16 @@
                                         <option value="{{ $item->id_kode_barang }}">{{ $item->deskripsi_barang }}</option>
                                     @endforeach
                                     </select>
-                                    <small class="form-text text-muted">Role Pengguna</small>
+                                    <small class="form-text text-muted">Barang</small>
+                            </div>
+                            <div class="col-3">
+                                <select name="id_user" id="id_user" class="form-control" required>
+                                    <option value="">- Semua -</option>
+                                    @foreach ($user as $item)
+                                        <option value="{{ $item->id_user }}">{{ $item->nama }}</option>
+                                    @endforeach
+                                    </select>
+                                    <small class="form-text text-muted">Admin Pengelola</small>
                             </div>
                         </div>
                     </div>
@@ -35,6 +44,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Admin Pengelola</th>
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
                         <th>NUP</th>
@@ -62,6 +72,7 @@
             "type": "POST",
             "data": function ( d ) {
                 d.id_kode_barang = $('#id_kode_barang').val();
+                d.id_user = $('#id_user').val();
             }
             },
             columns: [
@@ -70,6 +81,12 @@
                 className: "text-center",
                 orderable: false,
                 searchable: false
+                },
+                {
+                data: "user.nama",
+                className: "",
+                orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
+                searchable: true // searchable: true, jika ingin kolom ini bisa dicari
                 },
                 {
                 data: "kode.kode_barang",
@@ -111,6 +128,9 @@
         });
 
         $('#id_kode_barang').on('change', function() {
+            dataBarang.ajax.reload();
+        });
+        $('#id_user').on('change', function() {
             dataBarang.ajax.reload();
         });
     });

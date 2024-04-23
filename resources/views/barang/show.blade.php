@@ -18,6 +18,10 @@
             <td>{{ $barang->id_barang }}</td>
         </tr>
         <tr>
+            <th>Admin Pengelola</th>
+            <td>{{ $barang->user->nama }}</td>
+        </tr>
+        <tr>
             <th>Kode Barang</th>
             <td>{{ $barang->kode->kode_barang }}</td>
         </tr>
@@ -47,7 +51,7 @@
         </tr>
         </table>
     @endempty
-    <a href="{{ url('user') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
+    <a href="{{ url('barang') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
     </div>
 </div>
 @endsection
