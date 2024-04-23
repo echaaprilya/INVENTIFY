@@ -81,3 +81,14 @@ Route::group(['prefix' => 'ruang'], function(){
     Route::put('/{id}', [RuangController::class, 'update']);
     Route::delete('/{id}', [RuangController::class, 'destroy']);
 });
+
+Route::group(['prefix' => 'distribusi'], function(){
+    Route::get('/', [DistribusiController::class, 'index']);
+    Route::post('/list', [DistribusiController::class, 'list']);
+    Route::get('/create', [DistribusiController::class, 'create']);
+    Route::post('/', [DistribusiController::class,'store']);
+    Route::get('/{id}', [DistribusiController::class, 'show']);
+    Route::get('/{id}/edit', [DistribusiController::class, 'edit']);
+    Route::put('/{id}', [DistribusiController::class, 'update']);
+    Route::delete('/{id}', [DistribusiController::class, 'destroy']);
+});

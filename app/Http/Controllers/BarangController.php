@@ -39,6 +39,10 @@ class BarangController extends Controller
         if ($request->id_kode_barang) {
             $products->where('id_kode_barang', $request->id_kode_barang);
         }
+
+        if ($request->id_user) {
+            $products->where('id_user', $request->id_user);
+        }
         
         return DataTables::of($products)
             ->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)

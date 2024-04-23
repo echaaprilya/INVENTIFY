@@ -36,7 +36,7 @@ class RuangController extends Controller
             ->addColumn('aksi', function ($ruang) { // menambahkan kolom aksi
                 $btn = '<a href="' . url('/ruang/' . $ruang->id_ruang) . '" class="btn btn-info btn-sm">Detail</a> ';
                 $btn .= '<a href="' . url('/ruang/' . $ruang->id_ruang . '/edit') . '" class="btn btn-warning btn-sm">Edit</a> ';
-                $btn .= '<form class="d-inline-block" method="POST" action="' . url('/kode/' . $ruang->id_ruang) . '">' . csrf_field() . method_field('DELETE') . '<button type="submit" class="btn btn-danger btn-sm"onclick="return confirm(\'Apakah Anda yakit menghapus data ini?\');">Hapus</button></form>';
+                $btn .= '<form class="d-inline-block" method="POST" action="' . url('/ruang/' . $ruang->id_ruang) . '">' . csrf_field() . method_field('DELETE') . '<button type="submit" class="btn btn-danger btn-sm"onclick="return confirm(\'Apakah Anda yakit menghapus data ini?\');">Hapus</button></form>';
                 return $btn;
             })
             ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
@@ -136,7 +136,7 @@ class RuangController extends Controller
         }
 
         try{
-            KodeBarangModel::destroy($id);
+            RuangModel::destroy($id);
             return redirect('/ruang')->with('success', 'Data berhasil dihapus!');
         }catch(\Illuminate\Database\QueryException $e){
             return redirect('/ruang')->with('error', 'Data gagal dihapus! masih terdapat tabel lain yang terikat dengan data ini!');

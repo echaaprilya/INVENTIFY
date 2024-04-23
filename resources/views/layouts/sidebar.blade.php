@@ -84,9 +84,17 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{ url('/ruang') }}" class="nav-link {{ $activeMenu == 'kode' ? 'active' : '' }}">
+                    <a href="{{ url('/ruang') }}" class="nav-link {{ $activeMenu == 'ruang' ? 'active' : '' }}">
                       <i class="nav-icon fas fa-address-book"></i>
                       <p>List Ruangan</p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('/distribusi') }}" class="nav-link {{ $activeMenu == 'distribusi' ? 'active' : '' }}">
+                      <i class="nav-icon fas fa-bookmark"></i>
+                      <p>Distribusi Barang JTI</p>
                     </a>
                   </li>
                 </ul>

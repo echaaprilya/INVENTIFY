@@ -15,19 +15,6 @@
         <form method="POST" action="{{ url('status/'.$status->id_detail_status) }}" class="form-horizontal">
             @csrf
             {!! method_field('PUT')!!}
-            {{-- <div class="form-group row">
-                <label class="col-1 control-label col-form-label">Status Awal</label>
-                <div class="col-11">
-                    <select class="form-control" id="status_awal" name="status_awal" required>
-                        <option value="Baik" {{ old('status_awal', $status->status_awal) == 'Baik' ? 'selected' : '' }}>Baik</option>
-                        <option value="Rusak Ringan" {{ old('status_awal', $status->status_awal) == 'Rusak Ringan' ? 'selected' : '' }}>Rusak Ringan</option>
-                        <option value="Rusak Berat" {{ old('status_awal', $status->status_awal) == 'Rusak Berat' ? 'selected' : '' }}>Rusak Berat</option>
-                    </select>
-                    @error('status_awal')
-                        <small class="form-text text-danger">{{ $message }}</small>
-                    @enderror
-                </div>
-            </div> --}}
             <div class="form-group row">
                 <label class="col-1 control-label col-form-label">Kode Status</label>
                 <div class="col-11">
