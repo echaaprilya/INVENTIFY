@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RoleSeeder extends Seeder
+class KodeBarangSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,7 +22,7 @@ class RoleSeeder extends Seeder
             [
                 'id_role' => 2,
                 'kode_role' => '3030101005',
-                'nama_role' => 'Mesin Bor'
+                'deskripsi_barang' => 'Mesin Bor'
             ]
         ];
         DB::table('detail_kode_barang')->insert($data);
