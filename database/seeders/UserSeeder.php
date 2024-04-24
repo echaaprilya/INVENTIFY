@@ -17,17 +17,23 @@ class UserSeeder extends Seeder
         $data = [
             [
                 'id_user' => 1,
-                'nama' => 'John Doe',
-                'username' => 'admin',
-                'password' => Hash::make('12345')
+                'id_role' => 1,
+                'nama' => 'Yusufa Haidar',
+                'email' => 'haidardewa@gmail.com',
+                'no_hp' => '081234567890',
+                'username' => 'RyuzeiGG',
+                'password' => Hash::make('123456')
             ],
             [
                 'id_user' => 2,
+                'id_role' => 2,
                 'nama' => 'Richard Santana',
-                'username' => 'richard',
-                'password' => Hash::make('12345')
+                'email' => 'RSSantana@yahoo.com',
+                'no_hp' => '087569321458',
+                'username' => 'RSSantana',
+                'password' => Hash::make('123456')
             ]
         ];
-        DB::table('user')->insert($data);
+        DB::table('users')->insert($data);
     }
 }

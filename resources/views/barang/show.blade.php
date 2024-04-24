@@ -45,10 +45,6 @@
             <th>Tanggal Pencatatan</th>
             <td>{{ $barang->tanggal_pencatatan }}</td>
         </tr>
-        <tr>
-            <th>Password</th>
-            <td>********</td>
-        </tr>
         </table>
     @endempty
     <a href="{{ url('barang') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
