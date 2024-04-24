@@ -30,7 +30,7 @@ class RuanganSeeder extends Seeder
             ],
             [
                 'id_ruang' => 3,
-                'kode_ruang' => 'R06.01',
+                'kode_ruang' => 'R06.07',
                 'nama_ruang' => 'KPS D3 dan KPS D4',
                 'nip' => '1983052120060',
                 'penanggung_jawab' => 'Hendra Pradipta, SE., M.Sc'
